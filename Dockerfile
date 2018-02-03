@@ -2,7 +2,15 @@ FROM ubuntu:17.10
 
 MAINTAINER "Sebastian Wilzbach <seb@wilzba.ch>"
 
-RUN apt-get update && apt-get install --no-install-recommends -y libc-dev gcc curl ca-certificates libevent-dev libssl-dev xz-utils \
+RUN apt-get update && apt-get install --no-install-recommends -y \
+	ca-certificates \
+	curl \
+	gcc \
+	libblas-dev \
+	libc-dev \
+	libevent-dev \
+	liblapack-dev \
+	libssl-dev xz-utils \
 	&& update-alternatives --install "/usr/bin/ld" "ld" "/usr/bin/ld.gold" 20 \
 	&& update-alternatives --install "/usr/bin/ld" "ld" "/usr/bin/ld.bfd" 10
 
